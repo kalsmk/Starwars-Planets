@@ -34,7 +34,7 @@ function HomePage() {
   }, [pageNum]);
 
   const ShowPagination = () => {
-    if (!planetsData.detail) {
+    if (!isDataFetchError && !isLoading) {
       const pageCount = Math.ceil(planetsData.count / 10);
       return (
         <Pagination
