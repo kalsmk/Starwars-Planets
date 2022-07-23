@@ -1,9 +1,7 @@
-import _ from "lodash";
-
 const util = {};
 
 util.formatList = (list) => {
-  const sortNames = _.sortBy(list.results, "name");
+  const sortNames = list.results.sort((a, b) => (a.name > b.name ? 1 : -1));
   return (list = {
     ...list,
     results: sortNames,
@@ -23,7 +21,7 @@ util.SurfaceArea = (surfaceWater, diameter) => {
 
 util.DataFormat = (dataValue, type) => {
   if (type === "number" && dataValue !== "unknown") {
-    const tonum = _.toInteger(dataValue);
+    const tonum = Number(dataValue);
     if (tonum > 999) {
       const val = tonum.toLocaleString("en-US");
       return val.replaceAll(",", " ");
