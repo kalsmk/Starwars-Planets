@@ -27,7 +27,7 @@ const styledTable = styled.div`
   }
 
   th {
-    width: 200px;
+    width: 230px;
   }
 
   .row:nth-child(even) {

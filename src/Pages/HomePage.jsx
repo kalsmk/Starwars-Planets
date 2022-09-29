@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Table from "../Components/Table/Table";
-import Utils from "../utils/helpers";
 import API from "../Api/index";
 import Pagination from "../Components/Pagination/Pagination";
 
@@ -19,9 +18,8 @@ function HomePage() {
   useEffect(() => {
     async function getPlanetsDataAPI(pageNum) {
       try {
-        const fetchApi = await API.Get(pageNum);
-        const formatPlanetsData = Utils.formatList(fetchApi);
-        setPlanetsData(formatPlanetsData);
+        const fetchApiData = await API.Get(pageNum);
+        setPlanetsData(fetchApiData);
         setIsLoading(false);
       } catch (error) {
         setDataFetchError(true);
